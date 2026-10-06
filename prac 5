@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Menu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-50 font-sans p-6">
+  <h1 class="text-4xl font-bold text-center text-orange-600">Our Popular Dishes</h1>
+  <p class="text-center text-slate-500 mb-8">Freshly made, served hot</p>
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc-N3xgX1bfLvuWeY0k-D-c6VspCTWwUxTi2Yi1YSSdA&s=10" alt="Pizza" class="aspect-video w-full object-cover">
+      <div class="p-5 flex flex-col flex-1 justify-between gap-4">
+        <div>
+          <div class="flex justify-between items-center"><h2 class="text-xl font-semibold">Margherita Pizza</h2><span class="bg-orange-100 text-orange-700 text-sm px-3 py-1 rounded-full">₹249</span></div>
+          <p class="text-slate-500 text-sm mt-2">Classic pizza with fresh basil, tomato and mozzarella.</p>
+        </div>
+        <button class="bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 active:scale-95 transition">Order Now</button>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgxSv76_3d4__bXrCFLvkIdkPVCuFVB0q3pSsvkLJSaQ&s=10" alt="Burger" class="aspect-video w-full object-cover">
+      <div class="p-5 flex flex-col flex-1 justify-between gap-4">
+        <div>
+          <div class="flex justify-between items-center"><h2 class="text-xl font-semibold">Cheese Burger</h2><span class="bg-orange-100 text-orange-700 text-sm px-3 py-1 rounded-full">₹149</span></div>
+          <p class="text-slate-500 text-sm mt-2">Juicy patty with melted cheese, lettuce and house sauce.</p>
+        </div>
+        <button class="bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 active:scale-95 transition">Order Now</button>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSExsCkljiWGhLX-mglVpp_EnAT3cAhCz1txmVrTorCtA&s=10" alt="Pasta" class="aspect-video w-full object-cover">
+      <div class="p-5 flex flex-col flex-1 justify-between gap-4">
+        <div>
+          <div class="flex justify-between items-center"><h2 class="text-xl font-semibold">Creamy Pasta</h2><span class="bg-orange-100 text-orange-700 text-sm px-3 py-1 rounded-full">₹199</span></div>
+          <p class="text-slate-500 text-sm mt-2">Penne in white sauce with herbs and vegetables.</p>
+        </div>
+        <button class="bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 active:scale-95 transition">Order Now</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
