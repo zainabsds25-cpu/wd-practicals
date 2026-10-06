@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Portal FAQ</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: aliceblue; display: flex; justify-content: center; padding: 40px 15px; }
+    .faq { width: 600px; max-width: 100%; }
+    h2 { text-align: center; color: darkslateblue; }
+    .item { background: white; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 2px 6px lightgray; overflow: hidden; }
+    .question { width: 100%; padding: 15px; border: none; background: white; text-align: left; font-size: 16px; font-weight: bold; color: darkslateblue; cursor: pointer; display: flex; justify-content: space-between; }
+    .question:hover { background: lavender; }
+    .question::after { content: "+"; font-size: 20px; }
+    .question.active::after { content: "−"; }
+    .answer { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.3s, opacity 0.3s; }
+    .answer.active { max-height: 150px; opacity: 1; }
+    .answer p { margin: 0; padding: 0 15px 15px; color: dimgray; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="item"><button class="question" aria-expanded="false">How do I reset my college portal password?</button>
+      <div class="answer"><p>Click "Forgot Password" on the login page and follow the instructions sent to your email.</p></div></div>
+    <div class="item"><button class="question" aria-expanded="false">Where can I download my exam hall ticket?</button>
+      <div class="answer"><p>Log in to the student portal and open the Examination section.</p></div></div>
+    <div class="item"><button class="question" aria-expanded="false">How can I contact my department office?</button>
+      <div class="answer"><p>Visit the department office between 10 AM and 4 PM or email the department coordinator.</p></div></div>
+    <div class="item"><button class="question" aria-expanded="false">When are practical journals due?</button>
+      <div class="answer"><p>Journals are due one week after the practical session unless your faculty says otherwise.</p></div></div>
+  </div>
+  <script>
+    const questions = document.querySelectorAll(".question");
+    questions.forEach(function (question) {
+      question.addEventListener("click", function () {
+        const answer = question.nextElementSibling;
+        const isOpen = answer.classList.toggle("active");
+        question.classList.toggle("active", isOpen);
+        question.setAttribute("aria-expanded", isOpen);
+        questions.forEach(function (other) {
+          if (other !== question) {
+            other.classList.remove("active");
+            other.setAttribute("aria-expanded", "false");
+            other.nextElementSibling.classList.remove("active");
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
