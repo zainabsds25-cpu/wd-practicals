@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFest Invitation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white font-sans">
+  <nav class="flex items-center justify-between px-6 py-4 border-b border-white/20">
+    <span class="text-xl font-bold tracking-wide">TechFest 2026</span>
+    <a href="#register" class="text-sm text-yellow-300 hover:underline">Register</a>
+  </nav>
+  <main class="flex justify-center px-4 py-10 md:py-16">
+    <section class="max-w-2xl w-full text-center bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl p-8">
+      <p class="uppercase tracking-widest text-sm text-yellow-300">You are invited</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold mt-2">Annual Technical Festival</h1>
+      <p class="mt-4 text-slate-200 leading-relaxed">Coding contests, robotics, AI talks and workshops for all students and faculty of S. B. Jain Institute of Technology, Management &amp; Research, Nagpur.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+        <div class="border border-white/30 rounded-lg p-4"><p class="text-2xl">📅</p><p class="font-semibold">15 March 2026</p></div>
+        <div class="border border-white/30 rounded-lg p-4"><p class="text-2xl">⏰</p><p class="font-semibold">9:00 AM Onwards</p></div>
+        <div class="border border-white/30 rounded-lg p-4"><p class="text-2xl">📍</p><p class="font-semibold">Main Auditorium</p></div>
+      </div>
+      <div id="register" class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+        <button class="px-8 py-3 rounded-full bg-yellow-400 text-slate-900 font-semibold hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-white transition duration-300">Register Now</button>
+        <button class="px-8 py-3 rounded-full border-2 border-white font-semibold hover:bg-white hover:text-indigo-900 focus:outline-none focus:ring-2 focus:ring-yellow-300 transition duration-300">View Events</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
