@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-sky-100 to-indigo-200 flex justify-center p-6 font-sans">
+  <div class="w-full max-w-md h-fit bg-white rounded-2xl shadow-xl p-6">
+    <h1 class="text-2xl font-bold text-center text-indigo-700">My To-Do List</h1>
+    <p id="count" class="text-center text-sm text-slate-500 mt-1 mb-4"></p>
+    <div class="flex gap-2">
+      <input id="taskInput" type="text" placeholder="Add a new task..." class="flex-1 border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+      <button id="addBtn" class="bg-indigo-600 text-white px-5 rounded-lg hover:bg-indigo-500 active:scale-95 transition">Add</button>
+    </div>
+    <p id="error" class="text-red-500 text-sm mt-1"></p>
+    <ul id="taskList" class="mt-3 space-y-2"></ul>
+  </div>
+  <script>
+    const input = document.getElementById("taskInput");
+    const list = document.getElementById("taskList");
+    const count = document.getElementById("count");
+    const error = document.getElementById("error");
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    function save() {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      const done = tasks.filter(t => t.done).length;
+      count.textContent = done + " of " + tasks.length + " tasks completed";
+    }
+    function render() {
+      list.innerHTML = "";
+      tasks.forEach(function (task, index) {
+        const li = document.createElement("li");
+        li.className = "flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2";
+        const check = document.createElement("input");
+        check.type = "checkbox";
+        check.checked = task.done;
+        check.className = "h-4 w-4 accent-indigo-600 cursor-pointer";
+        const text = document.createElement("span");
+        text.textContent = task.text;
+        text.className = "flex-1 break-words";
+        if (task.done) text.classList.add("line-through", "text-gray-400");
+        const del = document.createElement("button");
+        del.textContent = "✕";
+        del.className = "text-red-500 hover:text-red-700 font-bold";
+        check.addEventListener("change", function () {
+          tasks[index].done = !tasks[index].done;
+          render();
+        });
+        del.addEventListener("click", function () {
+          tasks.splice(index, 1);
+          render();
+        });
+        li.append(check, text, del);
+        list.appendChild(li);
+      });
+      save();
+    }
+    function addTask() {
+      const text = input.value.trim();
+      if (text === "") {
+        error.textContent = "Please enter a task.";
+        return;
+      }
+      error.textContent = "";
+      tasks.push({ text: text, done: false });
+      input.value = "";
+      render();
+    }
+    document.getElementById("addBtn").addEventListener("click", addTask);
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter") addTask(); });
+    render();
+  </script>
+</body>
+</html>
