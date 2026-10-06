@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Showcase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 font-sans">
+
+  <header class="bg-indigo-700 text-white px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-2">
+    <h1 class="text-2xl md:text-3xl font-bold">New Collection 2026</h1>
+    <p class="text-indigo-200 text-sm md:text-base">Resize the window to see the layout change</p>
+  </header>
+  <main id="products" class="max-w-6xl mx-auto p-6 flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-6"></main>
+  <script>
+    const products = [
+      { icon: "🎧", name: "Wireless Headphones", info: "Noise cancelling, 30-hour battery", price: "₹2,999", color: "bg-sky-200" },
+      { icon: "⌚", name: "Smart Watch", info: "Heart-rate and sleep tracking", price: "₹3,499", color: "bg-rose-200" },
+      { icon: "🎒", name: "Laptop Backpack", info: "Water-resistant with USB port", price: "₹1,299", color: "bg-emerald-200" },
+      { icon: "🖱️", name: "Gaming Mouse", info: "Ergonomic with RGB lighting", price: "₹899", color: "bg-amber-200" }
+    ];
+    document.getElementById("products").innerHTML = products.map(p => `
+      <div class="w-full sm:w-64 lg:w-60 flex flex-row sm:flex-col bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="${p.color} w-28 sm:w-full h-auto sm:h-40 flex items-center justify-center text-5xl sm:text-6xl">${p.icon}</div>
+        <div class="flex flex-col flex-1 justify-between gap-3 p-4">
+          <div><h2 class="text-lg font-semibold text-slate-800">${p.name}</h2><p class="text-sm text-slate-500">${p.info}</p></div>
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="font-bold text-indigo-700">${p.price}</span>
+            <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 active:scale-95 transition">Buy Now</button>
+          </div>
+        </div>
+      </div>`).join("");
+  </script>
+</body>
+</html>
